@@ -21,5 +21,5 @@ Auth::routes();
 
 Route::resource('tasks', 'TaskController')->only([
     'index', 'store', 'edit', 'update', 'destroy'
-]);
-Route::get('/tasks/{task}/done', 'TaskController@done')->name('tasks.done');
+])->middleware('auth');
+Route::get('/tasks/{task}/done', 'TaskController@done')->name('tasks.done')->middleware('auth');
